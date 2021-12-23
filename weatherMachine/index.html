@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+
+    <head>
+
+        <title>Weather Machine</title>
+
+        <meta charset="utf-8">
+
+        <meta name="description" content="Amjad Majed's personal webstie and portfolio">
+
+        <meta name="keywords" content="amjad, majed, portfolio, personal, software engineer, software, application, app, android,
+                                       programing, development">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Lobster|Pacifico|Raleway:400,700" rel="stylesheet">
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="images/favicon/favicon.ico">
+
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+
+        <!-- Font Awesome CSS -->
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109817459-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-109817459-1');
+        </script>
+
+    </head>
+
+    <body>
+
+
+
+
+        <!-- section -->
+        <section id="home">
+
+            <div id="section-overlay">
+
+                <div class="container-fluid">
+
+                    <!-- page title -->
+                    <div class="row">
+
+                        <h1 id="title"> Your Weather App </h1>
+                        <br>
+
+                    </div>
+
+                    <!-- actual app content -->
+                    <div class="row">
+
+                        <!-- only one of the two divs inside will be visible at a time -->
+                        <div id="infromation" class="col-xs-12 col-md-4">
+
+                            <div class="row">
+
+                                <!-- Request location allowance heading -->
+                                <div id="instruction">
+
+                                    <h1> Kindly allow access to your location when your browser asks for permission! </h1>
+
+                                    <!-- Some browsers also over-protective, so they don't even ask for permission to share location, they directly deny it without asking.
+                                    This part to allow the user other options in that case -->
+                                    <div id="other-options">
+
+                                        <!-- this will be hidden and shown only if a user or a browser denied access to location -->
+                                        <hr>
+                                        <p> Location sharing was denied. If it wasn't you and were not asked by your browser at all then your browser is being over-protective and decided on your behalf that my website is unsafe because I don't have <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security">SSL certificate</a> yet.</p>
+                                        <p> You can instead instead do one of the following :</p>
+                                        <ul>
+                                            <li>
+                                                Visit another version of the app by clicking <a href="https://codepen.io/Amjad992/full/VrYvgG/"> here</a>
+                                            </li>
+                                            <li>
+                                                get your location information from <a href="https://mycurrentlocation.net/">here.</a> Enter it and click submit.
+                                                <br>
+                                                <input type="number" step="any" id="input-lat" placeholder="Latitude">
+                                                <br>
+                                                <input type="number" step="any" id="input-long" placeholder="Longitude">
+                                                <br>
+                                                <button type="button" id="lat-lon-submit" class="btn btn-primary"> Submit </button>
+                                            </li>
+                                        </ul>
+
+
+
+                                    </div>
+
+                                </div>
+
+                                <!-- Weather information -->
+                                <div id="results">
+
+                                    <div id="city-row" class="info">
+                                        <h3>City :      </h3> <h5 id="city"></h5>
+                                    </div>
+
+                                    <div id="temperature-row" class="info">
+                                        <h3>Temperature :      </h3>
+                                        <h5 id="temperature"></h5>
+                                        <h5 id="temperature-system"> C </h5>
+                                    </div>
+
+                                    <div id="status-row" class="info">
+                                        <h3>Status :      </h3>
+                                        <h5 id="status"></h5>
+                                    </div>
+
+                                    <div id="icon-row" class="info">
+                                        <img id="icon">
+                                    </div>
+
+                                    <!-- extra inforamtion row -->
+                                    <div id="extra-info-rows">
+
+                                        <div id="latitude-row" class="info">
+                                            <h3>Latitude :      </h3>
+                                            <h5 id="latitude"></h5>
+                                        </div>
+
+                                        <div id="longitude-row" class="info">
+                                            <h3>Longitude :      </h3>
+                                            <h5 id="longitude"></h5>
+                                        </div>
+
+                                        <div id="humidity-row" class="info">
+                                            <h3>Humidity :      </h3>
+                                            <h5 id="humidity"></h5>
+                                            <h5> %</h5>
+                                        </div>
+
+                                        <div id="pressure-row" class="info">
+                                            <h3>Pressure :      </h3>
+                                            <h5 id="pressure"></h5>
+                                            <h5> Hg</h5>
+                                        </div>
+
+                                        <div id="wind-row" class="info">
+                                            <h3>Wind Speed :      </h3>
+                                            <h5 id="wind"></h5>
+                                            <h5> M / S</h5>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- more and less button -->
+                                    <div id="more-less-row" class="info">
+                                        <button id="more-less-button" class="btn btn-primary">More Details</button>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                        <div id="image" class="hidden-xs col-md-8">
+
+                            <img id="weather-image" alt="weather" src="images/general.png">
+
+                        </div>
+
+                    </div>
+
+                    <!-- include github url later
+                    <div class="row">
+
+                        <br>
+                        <p id="my-link">To view this page in Github please click <a target="_blank" href="http://">here!</a> </p>
+
+                    </div>
+                    -->
+
+                </div>
+
+			</div>
+
+        </section>
+
+
+        <!-- Scripts -->
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <!-- My Script -->
+        <script src="js/custom.js"></script>
+
+
+
+
+    </body>
+
+
+</html>

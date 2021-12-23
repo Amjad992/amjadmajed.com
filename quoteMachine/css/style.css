@@ -1,0 +1,59 @@
+/* ============================================ General CSS ============================================ */
+
+
+/* ============================================ General CSS ============================================ */
+
+
+/* ============================================ Outer Body ============================================ */
+
+#title {
+    font-family: Pacifico;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* ============================================ Outer Body ============================================ */
+
+
+/* ============================================ Quote Box ============================================ */
+
+#quote-box {
+    margin-top: 70px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 20%;
+    border: 1px solid red;
+    border-radius: 20px;
+    text-align: center;
+}
+
+#quote {
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 25px;
+    font-family: Raleway;
+
+}
+
+#author {
+    font-family: Raleway;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    margin-left: 120px;
+    font-size: 20px;
+}
+
+#buttons-row {
+    margin-top: 30px;
+    vertical-align: center;
+}
+
+#shuffle {
+}
+
+#twitter-button {
+    text-align: center  ;
+}
+
+/* ============================================ Quote Box ============================================ */

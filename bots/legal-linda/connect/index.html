@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+    
+    <head>
+    
+        <title>Connect to Legal Linda</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      
+        <meta name="description" content="Kloudless app">
+      
+        <meta name="keywords" content="Legal Linda">
+      
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                              
+        <link rel="stylesheet" href="https://static-cdn.kloudless.com/p/platform/sdk/kloudless.scheduler.css">
+        <script type="text/javascript" src="https://static-cdn.kloudless.com/p/platform/sdk/kloudless.scheduler.js"></script>
+        
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    </head>
+    
+    <body>
+
+        <div id="kloudless-meeting-scheduler"></div>
+
+        <script>
+
+            
+            const scheduler = new window.Kloudless.scheduler();
+
+            // launch the Setup View
+            scheduler.launch({
+            appId: 'kf9NBByS98W4yhuSQdmbeRyNJl3bcGgzbHhPTPgdtzxZGnD8',
+            setup: {
+                formOptions: {
+                title: {},
+                description: {},
+                location: {},
+                duration: { default: 30 },
+                organizer: {},
+                weekday: {},
+                startHour: {},
+                endHour: {},
+                timeSlotInterval: {},
+                availabilityRange: {},
+                timeBufferBefore: {},
+                timeBufferAfter: {}
+                }
+            }
+            });
+
+            scheduler.on('connectAccount', (eventData) => {
+
+                var id = eventData.account.id;
+                var account = eventData.account.account;
+                var token = eventData.accountToken;
+
+                sendAccountToAdmin (id, account, token);
+
+            });
+
+            scheduler.on('submitMeetingWindow', (eventData) => {
+
+                var meetingWindow = eventData.meetingWindow;
+                var token = eventData.accountToken;
+
+                sendMeeintWindowToAdmin (meetingWindow, token)
+
+            });
+
+            function sendAccountToAdmin (id, account, token) {
+                $.ajax('https://hook.integromat.com/y1r45b7nd2oc86lroufe9kwxexnfp38o', {
+                    type: 'POST',
+                    data: { id : id,
+                            account : account,
+                            token : token },
+                    success: function (data, status, xhr) {
+                        console.log("Successfully Submitted Account Values");
+                    },
+                    error: function (jqXhr, textStatus, errorMessage) {
+                        console.log("Failed To Submit Account Values");
+                    }
+                });         
+            }
+
+            function sendMeeintWindowToAdmin (meetingWindow, token) {
+                $.ajax('https://hook.integromat.com/qzp8nie14hx8vegdqotqrtfljviiwyyn', {
+                    type: 'POST',
+                    data: { meetingWindow : meetingWindow,
+                            token : token },
+                    success: function (data, status, xhr) {
+                        console.log("Successfully Submitted Meeting Window Values");
+                        
+                    },
+                    error: function (jqXhr, textStatus, errorMessage) {
+                            console.log("Failed To Submit Meeting Window Values");
+                    }
+                });         
+            }
+
+         </script>
+        
+    </body>
+    
+
+</html>

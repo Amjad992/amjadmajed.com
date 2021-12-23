@@ -1,0 +1,115 @@
+/* ============================================ General CSS ============================================ */
+
+body {
+    background-color: rgba(0, 0, 0, .70);
+    height: 100%;
+        margin-left: 10px;
+
+}
+
+/* ============================================ General CSS ============================================ */
+
+
+/* ============================================ Information CSS ============================================ */
+
+#title {
+    font-family: Pacifico;
+    text-align: center;
+    margin-top: 20px;
+    color: #F9742E;
+}
+
+#instruction {
+    margin-top: 50%;
+    margin-bottom: 50%;
+    color: white;
+    text-align: center;
+    display: block;
+}
+
+/* other options section */
+
+#other-options {
+    display: none;
+    text-align: left;
+}
+
+#input-lat, #input-long, #lat-lon-submit {
+    display: inline;
+}
+
+#input-lat, #input-long {
+    color: black;    
+}
+
+
+/* other options section */
+
+#results {
+    margin-top: 10%;
+    color: white;
+    text-align: center;
+    display: none;
+    text-align: left;
+}
+
+.info {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.info h3 {
+    display: inline;
+}
+
+.info h5 {
+    display: inline;
+    color: #FF887F;
+    font-weight: bold;
+    font-size: 16px
+}
+
+#temperature-system {
+    color: white;
+    font-style: oblique;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+#icon-row, #more-less-row {
+    text-align:  center;
+}
+
+#icon {
+    background-color: #FFF2F0;
+    border: 1px solid #FFF2F0;
+    border-radius: 500px;
+}
+
+#extra-info-rows {
+    display: none;
+}
+
+#weather-image {
+    border: 5px solid #aeaeae;
+    border-radius: 100px;
+    height: 500px;
+    width: 800px;
+}
+
+#my-link {
+    color: white;
+}
+
+/* ============================================ Information CSS ============================================ */
+
+/* ============================================ Image CSS ============================================ */
+
+#weather-image {
+    vertical-align: middle;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+/* ============================================ Image CSS ============================================ */
+

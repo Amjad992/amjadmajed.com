@@ -1,0 +1,60 @@
+
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteOptions inherit
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^linkedin$ "https\:\/\/www\.linkedin\.com\/in\/amajd992\/" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^fb$ "https\:\/\/www\.facebook\.com\/Amjad992" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^facebook$ "https\:\/\/www\.facebook\.com\/Amjad992" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^twitter$ "https\:\/\/twitter\.com\/Amjad992" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^insta$ "https\:\/\/www\.instagram\.com\/Amjad992\/" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^github$ "https\:\/\/github\.com\/Amjad992" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^git$ "https\:\/\/github\.com\/Amjad992" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^profile$ "https\:\/\/app\.hellobonsai\.com\/u\/amjad" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^contact$ "https\:\/\/app\.hellobonsai\.com\/u\/amjad\/contact" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^upwork$ "https\:\/\/www\.upwork\.com\/fl\/amjad" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^pay$ "https\:\/\/www\.paypal\.me\/amjadmajed" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^paypal$ "https\:\/\/www\.paypal\.me\/amjadmajed" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^notion$ "https\:\/\/www\.notion\.so\/amjad992" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^office$ "https\:\/\/amjad\.plutio\.com\/" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^fiverr$ "https\:\/\/www\.fiverr\.com\/amjad992" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^webinar$ "https\:\/\/www\.notion\.so\/amjad992\/YSUPK\-Webinar\-7efcb3b71ba84302af80722d938e37d7" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^redirect$ "https\:\/\/server265\.web\-hosting\.com\:2083\/cpsess5539026219\/frontend\/paper_lantern\/mime\/redirect\.html" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^share$ "https\:\/\/drive\.google\.com\/drive\/folders\/1Hul9oJ31KHgmbhJ9MKF9M9C6rI5cQ1RH\?usp\=sharing" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^p\/share$ "https\:\/\/drive\.google\.com\/drive\/folders\/1UBFGVbNWI7pNV4M9u17I\-GIrKlcc9XRw\?usp\=sharing" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^plutio$ "https\:\/\/amjad\.plutio\.com\/" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^workspace$ "https\:\/\/www\.notion\.so\/amjad992" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^money$ "https\:\/\/docs\.google\.com\/spreadsheets\/d\/1PZei0nJZLlqN53cWI_lkQP63_Jgbp3ckvSG\-WGiaqMI\/edit\?usp\=sharing" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^shaun\-private$ "https\:\/\/docs\.google\.com\/spreadsheets\/d\/1gLF24GXN6W7q8Sc9F9AyFbFiYFZZNqv14qqBEMx_v9E\/edit\?usp\=sharing" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^shaun\-public$ "https\:\/\/docs\.google\.com\/spreadsheets\/d\/1dOtFtpo99llMhVtS55JoMwqiPME4xi79D0nqxSDGYf4\/edit\?usp\=sharing" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^loans$ "https\:\/\/docs\.google\.com\/spreadsheets\/d\/1RyFhgTAmDAl7XCs62Eq7alk5IEg5wyT64iUa4o5L8Ew\/edit\?usp\=sharing" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^meeting$ "https\:\/\/calendly\.com\/amjad992\/meeting" [R=301,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^bank$ "https\:\/\/www\.hblibank\.com\.pk\/Login" [R=301,L]
