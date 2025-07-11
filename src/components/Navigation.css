@@ -31,6 +31,7 @@
   font-size: 1.5rem;
   font-weight: 700;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 
 .brand-link:hover {
@@ -51,6 +52,7 @@
   transition: all 0.3s ease;
   position: relative;
   padding: 8px 0;
+  cursor: pointer;
 }
 
 .nav-link:hover {
