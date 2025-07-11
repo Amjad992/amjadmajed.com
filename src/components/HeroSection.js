@@ -84,7 +84,7 @@ const HeroSection = () => {
               <h1 className="hero-greeting">Hello World!</h1>
               <h2 className="hero-name">Amjad Majed</h2>
               <p className="hero-tagline">
-                An aspirant developer, who believes in continuous improvement!
+                I help business transform with technology.
               </p>
             </div>
 

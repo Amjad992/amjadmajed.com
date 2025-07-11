@@ -2,9 +2,9 @@ import './globals.css';
 import PropTypes from 'prop-types';
 
 export const metadata = {
-  title: 'Amjad Majed - MERN Stack Developer',
+  title: 'Amjad Majed',
   description:
-    'An aspirant developer, who believes in continuous improvement! Portfolio of Amjad Majed.',
+    'I help business transform with technology. I lead the team of Desol Int. where we work with clients to build innovative solutions that drive success.',
 };
 
 export default function RootLayout({children}) {
