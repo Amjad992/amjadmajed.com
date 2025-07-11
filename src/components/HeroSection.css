@@ -56,15 +56,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  align-self: center;
 }
 
 .profile-image {
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   border: 4px solid var(--primary-color);
   box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
   transition: transform 0.3s ease;
   object-fit: cover;
   object-position: center center;
+  display: block;
 }
 
 .profile-image:hover {
