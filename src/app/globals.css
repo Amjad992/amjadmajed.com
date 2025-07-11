@@ -62,6 +62,11 @@ body {
 main {
   margin: 0;
   padding: 0;
+  min-height: 100vh;
+}
+
+/* Home page specific styling - no scroll */
+.home-main {
   height: 100vh;
   overflow: hidden;
 }
