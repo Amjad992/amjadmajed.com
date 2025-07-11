@@ -2,8 +2,9 @@ import './globals.css';
 import PropTypes from 'prop-types';
 
 export const metadata = {
-  title: 'Next.js App',
-  description: 'A simple Next.js application',
+  title: 'Amjad Majed - MERN Stack Developer',
+  description:
+    'An aspirant developer, who believes in continuous improvement! Portfolio of Amjad Majed.',
 };
 
 export default function RootLayout({children}) {
