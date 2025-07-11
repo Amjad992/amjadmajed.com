@@ -1,5 +1,6 @@
 .hero-section {
-  height: 100vh;
+  height: calc(100vh - 70px);
+  margin-top: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -168,7 +169,8 @@
 @media (max-width: 768px) {
   .hero-section {
     padding: 20px 0;
-    height: 100vh;
+    height: calc(100vh - 60px);
+    margin-top: 60px;
   }
 
   .hero-main {
