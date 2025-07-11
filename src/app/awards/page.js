@@ -30,7 +30,7 @@ export default function Awards() {
               fontSize: '1.2rem',
             }}
           >
-            This is the Awards page. We'll build this content later.
+            This is the Awards page. We&apos;ll build this content later.
           </p>
         </div>
       </main>

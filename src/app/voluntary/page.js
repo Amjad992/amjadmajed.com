@@ -30,7 +30,8 @@ export default function Voluntary() {
               fontSize: '1.2rem',
             }}
           >
-            This is the Voluntary Work page. We'll build this content later.
+            This is the Voluntary Work page. We&apos;ll build this content
+            later.
           </p>
         </div>
       </main>

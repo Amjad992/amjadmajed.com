@@ -30,7 +30,7 @@ export default function About() {
               fontSize: '1.2rem',
             }}
           >
-            This is the About Me page. We'll build this content later.
+            This is the About Me page. We&apos;ll build this content later.
           </p>
         </div>
       </main>
