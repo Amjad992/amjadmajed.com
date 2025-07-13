@@ -210,32 +210,53 @@
 
 .add-btn,
 .reset-btn {
-  padding: 10px 20px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 600;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .add-btn {
-  background-color: var(--accent-color);
-  color: var(--bg-primary);
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  padding: 12px 24px;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
 }
 
 .add-btn:hover {
-  background-color: #e74c3c;
+  background: linear-gradient(135deg, #2980b9, #1e6091);
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+  transform: translateY(-2px);
+}
+
+.add-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(52, 152, 219, 0.3);
 }
 
 .reset-btn {
   background-color: var(--bg-primary);
   color: var(--text-secondary);
   border: 1px solid var(--border-color);
+  padding: 12px 24px;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .reset-btn:hover {
   color: var(--text-primary);
   border-color: var(--accent-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.reset-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Subjects Container */
@@ -294,24 +315,35 @@
 }
 
 .remove-btn {
-  background-color: #e74c3c;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
   color: white;
   border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
+  padding: 12px 24px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 0.8rem;
-  transition: background-color 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+  transition: all 0.3s ease;
 }
 
 .remove-btn:hover:not(:disabled) {
-  background-color: #c0392b;
+  background: linear-gradient(135deg, #c0392b, #a93226);
+  box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+  transform: translateY(-2px);
+}
+
+.remove-btn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(231, 76, 60, 0.3);
 }
 
 .remove-btn:disabled {
-  background-color: var(--text-secondary);
+  background: var(--text-secondary);
   cursor: not-allowed;
   opacity: 0.5;
+  box-shadow: 0 2px 10px rgba(231, 76, 60, 0.3);
+  transform: none;
 }
 
 /* Results Section */
@@ -541,58 +573,55 @@
 }
 
 .add-subject-btn {
-  background: linear-gradient(135deg, var(--accent-color), #e74c3c);
+  background: linear-gradient(135deg, #3498db, #2980b9);
   color: white;
   padding: 12px 24px;
   font-size: 0.9rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-  border: 2px solid transparent;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
 }
 
 .add-subject-btn::before {
   content: '+';
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-right: 4px;
 }
 
 .add-subject-btn:hover {
-  background: linear-gradient(135deg, #e74c3c, #c0392b);
-  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+  background: linear-gradient(135deg, #2980b9, #1e6091);
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
   transform: translateY(-2px);
 }
 
 .add-subject-btn:active {
   transform: translateY(0);
-  box-shadow: 0 2px 10px rgba(255, 107, 107, 0.3);
+  box-shadow: 0 2px 10px rgba(52, 152, 219, 0.3);
 }
 
 .remove-semester-btn {
   background: linear-gradient(135deg, #e74c3c, #c0392b);
   color: white;
-  padding: 8px 16px;
-  font-size: 0.85rem;
-  box-shadow: 0 3px 10px rgba(231, 76, 60, 0.3);
+  padding: 12px 24px;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
 }
 
 .remove-semester-btn:hover:not(:disabled) {
   background: linear-gradient(135deg, #c0392b, #a93226);
-  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
-  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+  transform: translateY(-2px);
 }
 
 .remove-semester-btn:active:not(:disabled) {
   transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+  box-shadow: 0 2px 10px rgba(231, 76, 60, 0.3);
 }
 
 .remove-semester-btn:disabled {
   background: var(--text-secondary);
   cursor: not-allowed;
   opacity: 0.5;
-  box-shadow: none;
+  box-shadow: 0 2px 10px rgba(231, 76, 60, 0.3);
   transform: none;
 }
 
