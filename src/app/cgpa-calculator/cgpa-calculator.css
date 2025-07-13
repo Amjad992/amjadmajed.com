@@ -111,33 +111,200 @@
 
 .custom-grades-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .custom-grade-item {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
-.custom-grade-item label {
+.custom-grade-item:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.grade-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.grade-actions {
+  display: flex;
+  gap: 0.25rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.custom-grade-item:hover .grade-actions {
+  opacity: 1;
+}
+
+.grade-action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  color: var(--text-secondary);
+  min-width: 32px;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grade-action-btn:hover {
+  background-color: var(--bg-secondary);
+  transform: scale(1.05);
+}
+
+.grade-action-btn.delete:hover {
+  color: #e74c3c;
+  background-color: rgba(231, 76, 60, 0.15);
+  transform: scale(1.05);
+}
+
+.grade-action-btn.edit:hover {
+  color: #3498db;
+  background-color: rgba(52, 152, 219, 0.15);
+  transform: scale(1.05);
+}
+
+.grade-name-input {
+  background-color: transparent;
   color: var(--text-primary);
-  font-weight: 500;
+  border: 1px solid transparent;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+  min-width: 0;
+}
+
+.grade-name-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  background-color: var(--bg-secondary);
+}
+
+.grade-name-input:hover {
+  border-color: var(--border-color);
 }
 
 .grade-points-input {
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
   color: var(--text-primary);
   border: 1px solid var(--border-color);
   padding: 8px 12px;
   border-radius: 6px;
   font-size: 0.9rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  -moz-appearance: textfield; /* Firefox */
+  appearance: textfield; /* Standard property */
+}
+
+.grade-points-input::-webkit-outer-spin-button,
+.grade-points-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .grade-points-input:focus {
   outline: none;
   border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.1);
+}
+
+.add-grade-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.add-grade-btn {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.add-grade-btn::before {
+  content: '+';
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.add-grade-btn:hover {
+  background: linear-gradient(135deg, #2980b9, #1e6091);
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+  transform: translateY(-2px);
+}
+
+.add-grade-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(52, 152, 219, 0.3);
+}
+
+.grade-management-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.grade-management-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.reset-grades-btn {
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+  transition: all 0.3s ease;
+}
+
+.reset-grades-btn:hover {
+  background: linear-gradient(135deg, #e67e22, #d35400);
+  box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
+  transform: translateY(-2px);
+}
+
+.reset-grades-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(243, 156, 18, 0.3);
 }
 
 /* Grade Reference */
@@ -239,24 +406,24 @@
 }
 
 .reset-btn {
-  background-color: var(--bg-primary);
-  color: var(--text-secondary);
-  border: 1px solid var(--border-color);
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+  color: white;
+  border: none;
   padding: 12px 24px;
   font-size: 0.9rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
 }
 
 .reset-btn:hover {
-  color: var(--text-primary);
-  border-color: var(--accent-color);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transform: translateY(-1px);
+  background: linear-gradient(135deg, #e67e22, #d35400);
+  box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
+  transform: translateY(-2px);
 }
 
 .reset-btn:active {
   transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(243, 156, 18, 0.3);
 }
 
 /* Subjects Container */
@@ -299,6 +466,17 @@
   padding: 8px 12px;
   border-radius: 6px;
   font-size: 0.9rem;
+}
+
+.credits-input {
+  -moz-appearance: textfield; /* Firefox */
+  appearance: textfield; /* Standard property */
+}
+
+.credits-input::-webkit-outer-spin-button,
+.credits-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .subject-input:focus,
@@ -705,7 +883,30 @@
   }
 
   .custom-grades-grid {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  .grade-management-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .grade-management-actions {
+    justify-content: center;
+  }
+
+  .custom-grade-item {
+    padding: 0.75rem;
+  }
+
+  .grade-actions {
+    opacity: 1;
+  }
+
+  .add-grade-btn {
+    width: 100%;
+    justify-content: center;
   }
 
   .grade-table {

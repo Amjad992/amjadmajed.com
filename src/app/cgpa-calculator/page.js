@@ -96,9 +96,67 @@ export default function CGPACalculator() {
     });
     setSemesters(updatedSemesters);
   };
+  const updateCustomGrade = (oldGrade, newGrade, points) => {
+    const newCustomGrades = {...customGrades};
 
-  const updateCustomGrade = (grade, points) => {
-    setCustomGrades({...customGrades, [grade]: parseFloat(points) || 0});
+    // Handle numeric input properly
+    let numericValue;
+    if (points === '' || points === null || points === undefined) {
+      numericValue = 0;
+    } else {
+      const parsed = parseFloat(points);
+      numericValue = isNaN(parsed) ? 0 : Math.max(0, Math.min(8, parsed));
+    }
+
+    // If grade name changed, remove old grade and add new one
+    if (oldGrade !== newGrade) {
+      delete newCustomGrades[oldGrade];
+      newCustomGrades[newGrade] = numericValue;
+    } else {
+      newCustomGrades[newGrade] = numericValue;
+    }
+
+    setCustomGrades(newCustomGrades);
+  };
+
+  const addCustomGrade = () => {
+    const gradeNames = Object.keys(customGrades);
+    let newGradeName = 'New';
+    let counter = 1;
+
+    // Find a unique grade name
+    while (gradeNames.includes(newGradeName)) {
+      newGradeName = `New${counter}`;
+      counter++;
+    }
+
+    setCustomGrades({
+      ...customGrades,
+      [newGradeName]: 0.0,
+    });
+  };
+
+  const removeCustomGrade = (gradeToRemove) => {
+    const newCustomGrades = {...customGrades};
+    delete newCustomGrades[gradeToRemove];
+    setCustomGrades(newCustomGrades);
+  };
+
+  const resetGradesToDefault = () => {
+    setCustomGrades({
+      'A+': 4.0,
+      A: 3.75,
+      'A-': 3.5,
+      'B+': 3.25,
+      B: 3.0,
+      'B-': 2.75,
+      'C+': 2.5,
+      C: 2.25,
+      'C-': 2.0,
+      'D+': 1.75,
+      D: 1.5,
+      F: 0.0,
+    });
   };
 
   const calculateSemesterGPA = (subjects) => {
@@ -177,22 +235,83 @@ export default function CGPACalculator() {
 
           {/* Custom Grade System Configuration */}
           <section className="custom-system-config">
-            <h3>Configure Grade Points</h3>
+            <div className="grade-management-header">
+              <h3>Configure Grade Points</h3>
+              <div className="grade-management-actions">
+                <button
+                  onClick={resetGradesToDefault}
+                  className="reset-grades-btn"
+                  title="Reset to default grades"
+                >
+                  Reset to Default
+                </button>
+              </div>
+            </div>
+
             <div className="custom-grades-grid">
               {Object.entries(customGrades).map(([grade, points]) => (
                 <div key={grade} className="custom-grade-item">
-                  <label>{grade}:</label>
+                  <div className="grade-header">
+                    <input
+                      type="text"
+                      defaultValue={grade}
+                      onBlur={(e) =>
+                        updateCustomGrade(grade, e.target.value, points)
+                      }
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                          e.target.blur();
+                        }
+                      }}
+                      className="grade-name-input"
+                      placeholder="Grade"
+                      title="Click to edit grade name"
+                    />
+                    <div className="grade-actions">
+                      <button
+                        onClick={() => removeCustomGrade(grade)}
+                        className="grade-action-btn delete"
+                        title="Delete this grade"
+                        disabled={Object.keys(customGrades).length <= 1}
+                      >
+                        ×
+                      </button>
+                    </div>
+                  </div>
                   <input
                     type="number"
                     step="0.01"
                     min="0"
-                    max="4"
-                    value={points}
-                    onChange={(e) => updateCustomGrade(grade, e.target.value)}
+                    max="8"
+                    defaultValue={points}
+                    onBlur={(e) =>
+                      updateCustomGrade(grade, grade, e.target.value)
+                    }
+                    onChange={(e) => {
+                      // Allow temporary values while typing
+                      if (
+                        e.target.value === '' ||
+                        (parseFloat(e.target.value) >= 0 &&
+                          parseFloat(e.target.value) <= 8)
+                      ) {
+                        // Valid input or empty, let it be
+                      } else {
+                        // Invalid input, reset to current value
+                        e.target.value = points;
+                      }
+                    }}
                     className="grade-points-input"
+                    placeholder="Points"
+                    title="Grade point value (0-8)"
                   />
                 </div>
               ))}
+            </div>
+
+            <div className="add-grade-container">
+              <button onClick={addCustomGrade} className="add-grade-btn">
+                Add New Grade
+              </button>
             </div>
           </section>
 
