@@ -499,23 +499,6 @@ export default function CGPACalculator() {
               </p>
             </div>
           </section>
-
-          {/* Instructions */}
-          <section className="instructions">
-            <h3>How to Use</h3>
-            <ol>
-              <li>Configure the grade points for each grade if needed</li>
-              <li>Add semesters by clicking "Add Semester" button</li>
-              <li>For each semester, add subjects by clicking "Add Subject"</li>
-              <li>Enter subject name, credit hours, and select the grade</li>
-              <li>
-                Each semester's GPA and credit hours will be calculated
-                automatically
-              </li>
-              <li>Your overall CGPA will be calculated across all semesters</li>
-              <li>Use "Reset All" to clear all data and start over</li>
-            </ol>
-          </section>
         </div>
       </main>
     </>
