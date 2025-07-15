@@ -483,7 +483,9 @@ export default function CGPACalculator() {
                 <span>4.0</span>
               </div>
               <p className="performance-text">
-                {cgpa >= 3.5
+                {totalCredits === 0
+                  ? 'No data entered yet'
+                  : cgpa >= 3.5
                   ? 'Excellent'
                   : cgpa >= 3.0
                   ? 'Very Good'
