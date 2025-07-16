@@ -41,7 +41,7 @@ export default function ResultsSection({cgpa, totalCredits, semesterCount}) {
         </div>
         <div className="performance-labels">
           {PERFORMANCE_BAR_LABELS.map((label, index) => (
-            <span key={index}>{label}</span>
+            <span key={label}>{label}</span>
           ))}
         </div>
         <p className="performance-text">{performanceText}</p>
