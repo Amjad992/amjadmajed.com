@@ -204,10 +204,10 @@ export default function Voluntary() {
                     the city.
                   </p>
                   <p>
-                    My duties included but weren't limited to managing small
-                    teams to prepare magazines, fliers, booklets. I also had to
-                    make sure our events announcements and advertisements was
-                    covering the largest part of the city. All techy tasks
+                    My duties included but weren&apos;t limited to managing
+                    small teams to prepare magazines, fliers, booklets. I also
+                    had to make sure our events announcements and advertisements
+                    was covering the largest part of the city. All techy tasks
                     needed for our work had to be done by me or under my
                     supervision.
                   </p>
@@ -291,8 +291,8 @@ export default function Voluntary() {
                   <p>
                     I had volunteered to solve technical issues faced by the
                     staff of the center, as they were not experts in dealing
-                    with computers and many of their problems weren't that much
-                    of an issue.
+                    with computers and many of their problems weren&apos;t that
+                    much of an issue.
                   </p>
                   <p>
                     I had solved many of their issues and helped to ease their
