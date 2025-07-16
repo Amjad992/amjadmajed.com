@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {CREDIT_HOUR_LIMITS} from '../constants';
 
 export default function SubjectRow({
@@ -62,3 +63,21 @@ export default function SubjectRow({
     </div>
   );
 }
+
+SubjectRow.propTypes = {
+  semester: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    subjects: PropTypes.array.isRequired,
+  }).isRequired,
+  subject: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    creditHours: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+      .isRequired,
+    grade: PropTypes.string.isRequired,
+    gradePoints: PropTypes.number.isRequired,
+  }).isRequired,
+  subjectIndex: PropTypes.number.isRequired,
+  customGrades: PropTypes.objectOf(PropTypes.number).isRequired,
+  onUpdateSubject: PropTypes.func.isRequired,
+  onRemoveSubject: PropTypes.func.isRequired,
+};

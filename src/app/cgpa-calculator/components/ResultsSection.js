@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   getPerformanceLevel,
   getPerformanceBarWidth,
@@ -48,3 +49,9 @@ export default function ResultsSection({cgpa, totalCredits, semesterCount}) {
     </section>
   );
 }
+
+ResultsSection.propTypes = {
+  cgpa: PropTypes.number.isRequired,
+  totalCredits: PropTypes.number.isRequired,
+  semesterCount: PropTypes.number.isRequired,
+};

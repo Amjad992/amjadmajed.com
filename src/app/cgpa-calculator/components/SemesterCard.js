@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import SubjectRow from './SubjectRow';
 import {calculateSemesterGPA} from '../utils';
 
@@ -70,3 +71,26 @@ export default function SemesterCard({
     </div>
   );
 }
+
+SemesterCard.propTypes = {
+  semester: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    subjects: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        creditHours: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+          .isRequired,
+        grade: PropTypes.string.isRequired,
+        gradePoints: PropTypes.number.isRequired,
+      })
+    ).isRequired,
+  }).isRequired,
+  customGrades: PropTypes.objectOf(PropTypes.number).isRequired,
+  onUpdateSemesterName: PropTypes.func.isRequired,
+  onAddSubject: PropTypes.func.isRequired,
+  onRemoveSubject: PropTypes.func.isRequired,
+  onUpdateSubject: PropTypes.func.isRequired,
+  onRemoveSemester: PropTypes.func.isRequired,
+  canRemoveSemester: PropTypes.bool.isRequired,
+};

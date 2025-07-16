@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export default function CalculatorHeader({onAddSemester, onResetCalculator}) {
   return (
     <div className="calculator-header">
@@ -13,3 +15,8 @@ export default function CalculatorHeader({onAddSemester, onResetCalculator}) {
     </div>
   );
 }
+
+CalculatorHeader.propTypes = {
+  onAddSemester: PropTypes.func.isRequired,
+  onResetCalculator: PropTypes.func.isRequired,
+};

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {GRADE_POINT_LIMITS} from '../constants';
 
 export default function GradeManagement({
@@ -99,3 +100,11 @@ export default function GradeManagement({
     </section>
   );
 }
+
+GradeManagement.propTypes = {
+  customGrades: PropTypes.objectOf(PropTypes.number).isRequired,
+  onUpdateGrade: PropTypes.func.isRequired,
+  onAddGrade: PropTypes.func.isRequired,
+  onRemoveGrade: PropTypes.func.isRequired,
+  onResetGrades: PropTypes.func.isRequired,
+};
