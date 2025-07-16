@@ -1,0 +1,72 @@
+import SubjectRow from './SubjectRow';
+import {calculateSemesterGPA} from '../utils';
+
+export default function SemesterCard({
+  semester,
+  customGrades,
+  onUpdateSemesterName,
+  onAddSubject,
+  onRemoveSubject,
+  onUpdateSubject,
+  onRemoveSemester,
+  canRemoveSemester,
+}) {
+  const {gpa, totalCredits} = calculateSemesterGPA(
+    semester.subjects,
+    customGrades
+  );
+
+  return (
+    <div className="semester-container">
+      <div className="semester-header">
+        <input
+          type="text"
+          value={semester.name}
+          onChange={(e) => onUpdateSemesterName(semester.id, e.target.value)}
+          className="semester-name-input"
+        />
+        <div className="semester-stats">
+          <span className="semester-gpa">GPA: {gpa.toFixed(2)}</span>
+          <span className="semester-credits">Credits: {totalCredits}</span>
+        </div>
+        <div className="semester-actions">
+          <button
+            onClick={() => onAddSubject(semester.id)}
+            className="add-subject-btn"
+          >
+            Add Subject
+          </button>
+          <button
+            onClick={() => onRemoveSemester(semester.id)}
+            className="remove-semester-btn"
+            disabled={!canRemoveSemester}
+          >
+            Remove Semester
+          </button>
+        </div>
+      </div>
+
+      <div className="subjects-container">
+        <div className="subjects-header">
+          <div className="col-subject">Subject Name</div>
+          <div className="col-credits">Credit Hours</div>
+          <div className="col-grade">Grade</div>
+          <div className="col-points">Grade Points</div>
+          <div className="col-action">Action</div>
+        </div>
+
+        {semester.subjects.map((subject, index) => (
+          <SubjectRow
+            key={`${semester.id}-${index}`}
+            semester={semester}
+            subject={subject}
+            subjectIndex={index}
+            customGrades={customGrades}
+            onUpdateSubject={onUpdateSubject}
+            onRemoveSubject={onRemoveSubject}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
