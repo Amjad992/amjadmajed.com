@@ -86,7 +86,7 @@ const HeroSection = () => {
           {/* Social Media Icons */}
           <div className="sections-container">
             <div className="social-section">
-              <h3 className="social-title">Connect with me</h3>
+              <h3 className="social-title">Connect with me on</h3>
               <div className="social-icons">
                 <SocialIcon
                   href="https://www.linkedin.com/in/amjad992"
