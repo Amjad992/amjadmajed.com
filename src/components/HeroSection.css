@@ -108,6 +108,17 @@
   line-height: 1.6;
 }
 
+.link-text {
+  cursor: pointer;
+  color: var(--primary-color);
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.link-text:hover {
+  opacity: 0.8;
+}
+
 .social-section,
 .freelancing-section {
   display: flex;

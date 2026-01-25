@@ -1,3 +1,5 @@
+'use client';
+
 import PropTypes from 'prop-types';
 import Image from 'next/image';
 import './HeroSection.css';
@@ -64,9 +66,16 @@ const HeroSection = () => {
             {/* Left side - Text content */}
             <div className="hero-text">
               <h1 className="hero-greeting">Hello World!</h1>
-              <h2 className="hero-name">Amjad Majed</h2>
+              <h2 className="hero-name">I am Amjad Majed</h2>
               <p className="hero-tagline">
-                I help business transform with technology.
+                Helping business transform with technology, I lead the team in{' '}
+                <span 
+                  className="link-text"
+                  onClick={() => window.open('https://desolint.com', '_blank')}
+                >
+                  desolint.com
+                </span>
+                {' '} to build scalable applications and deliver innovative, reliable solutions.
               </p>
             </div>
 
