@@ -193,8 +193,7 @@
 @media (max-width: 768px) {
   .hero-section {
     padding: 20px 0;
-    height: calc(100vh - 60px);
-    margin-top: 60px;
+    min-height: 100vh;
   }
 
   .hero-main {
@@ -216,6 +215,14 @@
   .sections-container {
     flex-direction: column;
     gap: 40px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .social-section,
+  .freelancing-section {
+    width: 100%;
+    align-items: center;
   }
 
   .hero-content > .social-section {
@@ -225,6 +232,7 @@
   .social-icons,
   .freelancing-icons {
     gap: 12px;
+    justify-content: center;
   }
 
   .social-icon {
@@ -240,17 +248,22 @@
 
 @media (max-width: 480px) {
   .hero-main {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    gap: 20px;
   }
 
   .profile-image {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
   }
 
   .social-section,
   .freelancing-section {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+  }
+
+  .sections-container {
+    gap: 25px;
   }
 }
 
@@ -352,32 +365,44 @@
 /* Contact Section Responsive */
 @media (max-width: 768px) {
   .contact-content {
-    padding: 32px 20px;
-    margin-top: 40px;
+    padding: 24px 16px;
+    margin-top: 30px;
   }
 
   .contact-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 12px;
   }
 
   .contact-item {
-    flex-direction: column;
-    text-align: center;
-    padding: 16px;
+    flex-direction: row;
+    text-align: left;
+    padding: 12px;
+    align-items: center;
   }
 
   .contact-details {
-    text-align: center;
+    text-align: left;
   }
 }
 
 @media (max-width: 480px) {
   .contact-content {
-    padding: 24px 16px;
+    padding: 20px 12px;
+    margin-top: 20px;
   }
 
   .contact-item {
-    padding: 14px;
+    padding: 10px;
+  }
+
+  .contact-content h2 {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+  }
+
+  .contact-content > p {
+    font-size: 0.85rem;
+    margin-bottom: 16px;
   }
 }
