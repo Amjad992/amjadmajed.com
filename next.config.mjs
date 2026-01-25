@@ -23,8 +23,13 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/x',
+        destination: 'https://x.com/amjad992',
+        permanent: true,
+      },
+      {
         source: '/twitter',
-        destination: 'https://twitter.com/Amjad992',
+        destination: 'https://x.com/amjad992',
         permanent: true,
       },
       {
@@ -52,6 +57,11 @@ const nextConfig = {
         destination: 'https://www.upwork.com/fl/amjad',
         permanent: true,
       },
+      {
+        source: '/fiverr',
+        destination: 'https://www.fiverr.com/amjad992',
+        permanent: true,
+      }
     ];
   },
 };
