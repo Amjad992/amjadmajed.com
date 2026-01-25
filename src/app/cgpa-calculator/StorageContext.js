@@ -9,6 +9,34 @@ import {
   validateGradesData,
   validateSemestersData,
 } from './storageUtils';
+import {DEFAULT_GRADES, DEFAULT_SEMESTER} from './constants';
+
+/**
+ * Deep comparison utility
+ */
+function deepEqual(obj1, obj2) {
+  if (obj1 === obj2) return true;
+  if (
+    typeof obj1 !== 'object' ||
+    typeof obj2 !== 'object' ||
+    obj1 === null ||
+    obj2 === null
+  ) {
+    return false;
+  }
+
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+
+  if (keys1.length !== keys2.length) return false;
+
+  for (const key of keys1) {
+    if (!keys2.includes(key)) return false;
+    if (!deepEqual(obj1[key], obj2[key])) return false;
+  }
+
+  return true;
+}
 
 const StorageContext = createContext(null);
 
@@ -66,6 +94,29 @@ export function StorageProvider({children}) {
    */
   const saveToStorage = useCallback((key, data, errorType) => {
     try {
+      // Determine default values based on error type
+      let defaultValue;
+      if (errorType === 'grades') {
+        defaultValue = DEFAULT_GRADES;
+      } else if (errorType === 'semesters') {
+        defaultValue = [
+          {
+            id: 1,
+            name: DEFAULT_SEMESTER.name,
+            subjects: [{name: '', creditHours: '', grade: '', gradePoints: 0}],
+          },
+        ];
+      }
+
+      // If data equals defaults, clear storage instead of saving
+      if (defaultValue && deepEqual(data, defaultValue)) {
+        clearLocalStorage(key);
+        setStorageErrors((prev) => ({...prev, [errorType]: null}));
+        setHasSavedData((prev) => ({...prev, [errorType]: false}));
+        return true;
+      }
+
+      // Otherwise, save normally
       saveToLocalStorage(key, data, STORAGE_VERSION);
       setStorageErrors((prev) => ({...prev, [errorType]: null}));
       setHasSavedData((prev) => ({...prev, [errorType]: true}));
