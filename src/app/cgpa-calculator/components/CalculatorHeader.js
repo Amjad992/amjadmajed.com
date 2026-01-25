@@ -26,7 +26,7 @@ export default function CalculatorHeader({
   };
   return (
     <div className="calculator-header">
-      <h3>Enter Your Semesters and Subjects</h3>
+      <h3>Enter Semesters and Subjects</h3>
       <div className="calculator-actions">
         <button onClick={onAddSemester} className="add-btn">
           Add Semester
