@@ -3,6 +3,21 @@
   min-height: 100vh;
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   color: var(--text-primary);
+  padding: 1rem;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.cgpa-calculator-page *,
+.cgpa-calculator-page *::before,
+.cgpa-calculator-page *::after {
+  box-sizing: border-box;
+}
+
+.cgpa-calculator-page .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .calculator-hero {
@@ -976,19 +991,30 @@
 
 /* Enhanced Responsive Design for Semesters */
 @media (max-width: 768px) {
+  .cgpa-calculator-page {
+    padding: 0.75rem;
+  }
+
+  .calculator-hero {
+    padding: 40px 0 30px;
+  }
+
   .semester-header {
     flex-direction: column;
     align-items: stretch;
     gap: 1rem;
+    padding: 1rem;
   }
 
   .semester-stats {
     margin-left: 0;
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   .semester-actions {
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   .summary-details {
@@ -1003,20 +1029,24 @@
 
   .calculator-actions {
     justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .calculator-actions button {
+    flex: 1;
+    min-width: 120px;
   }
 
   .add-subject-btn {
-    padding: 14px 20px;
-    font-size: 0.95rem;
+    padding: 12px 16px;
+    font-size: 0.9rem;
     width: 100%;
     justify-content: center;
-    margin-top: 16px;
   }
 
   .remove-semester-btn {
     padding: 10px 16px;
     font-size: 0.9rem;
-    margin-top: 8px;
   }
 
   /* Disable hover effects on mobile for better touch experience */
@@ -1063,8 +1093,18 @@
     gap: 1rem;
   }
 
+  .grade-management-header h3 {
+    text-align: center;
+  }
+
   .grade-management-actions {
     justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .grade-management-actions button {
+    flex: 1;
+    min-width: 120px;
   }
 
   .custom-grade-item {
@@ -1083,11 +1123,10 @@
   .grade-table {
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
   }
-}
 
-@media (max-width: 480px) {
-  .calculator-hero h1 {
-    font-size: 2rem;
+  .results-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .system-selection,
@@ -1096,10 +1135,126 @@
   .calculator-section,
   .results-section,
   .instructions {
-    padding: 1.5rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .semester-container {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cgpa-calculator-page {
+    padding: 0.5rem 0.25rem;
+  }
+
+  .calculator-hero {
+    padding: 30px 0 20px;
+  }
+
+  .calculator-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .calculator-tagline {
+    font-size: 1rem;
+  }
+
+  .system-selection,
+  .custom-system-config,
+  .grade-reference,
+  .calculator-section,
+  .results-section,
+  .instructions {
+    padding: 1rem 0.75rem;
+    margin-bottom: 1rem;
   }
 
   .result-value {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+
+  .result-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .calculator-actions button,
+  .grade-management-actions button {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+    min-width: 100px;
+  }
+
+  .add-btn,
+  .reset-btn,
+  .save-btn,
+  .clear-saved-btn,
+  .reset-grades-btn,
+  .save-grades-btn {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+
+  .add-subject-btn,
+  .remove-semester-btn {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+
+  .custom-grades-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .semester-header {
+    padding: 0.75rem;
+  }
+
+  .semester-name-input {
+    font-size: 1rem;
+  }
+
+  .semester-stats {
+    font-size: 0.85rem;
+    gap: 1rem;
+  }
+
+  .subject-row {
+    padding: 0.75rem;
+  }
+
+  .subject-input,
+  .credits-input,
+  .grade-select {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .semester-name-input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .grade-management-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .custom-system-config h3,
+  .calculator-header h3,
+  .results-section h3 {
+    font-size: 1.1rem;
+  }
+
+  .toast-container {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+  }
+
+  .toast {
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
   }
 }
