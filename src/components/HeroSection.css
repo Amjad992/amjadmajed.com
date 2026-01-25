@@ -35,6 +35,8 @@
   text-align: center;
   max-width: 1000px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .hero-main {
@@ -43,6 +45,15 @@
   justify-content: center;
   gap: 60px;
   margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+
+.sections-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 80px;
+  margin-top: 20px;
   flex-wrap: wrap;
 }
 
@@ -99,7 +110,9 @@
 
 .social-section,
 .freelancing-section {
-  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .social-title,
@@ -188,6 +201,15 @@
   .profile-image {
     width: 250px;
     height: 250px;
+  }
+
+  .sections-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .hero-content > .social-section {
+    margin-right: 0;
   }
 
   .social-icons,

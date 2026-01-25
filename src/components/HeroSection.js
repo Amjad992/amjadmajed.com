@@ -84,44 +84,46 @@ const HeroSection = () => {
           </div>
 
           {/* Social Media Icons */}
-          <div className="social-section">
-            <h3 className="social-title">Connect with me</h3>
-            <div className="social-icons">
-              <SocialIcon
-                href="https://www.linkedin.com/in/amjad992"
-                bgColor="var(--linkedin)"
-                label="LinkedIn"
-              >
-                <LinkedInIcon />
-              </SocialIcon>
-              <SocialIcon
-                href="https://github.com/amjad992"
-                bgColor="var(--github)"
-                label="GitHub"
-              >
-                <GitHubIcon />
-              </SocialIcon>
+          <div className="sections-container">
+            <div className="social-section">
+              <h3 className="social-title">Connect with me</h3>
+              <div className="social-icons">
+                <SocialIcon
+                  href="https://www.linkedin.com/in/amjad992"
+                  bgColor="var(--linkedin)"
+                  label="LinkedIn"
+                >
+                  <LinkedInIcon />
+                </SocialIcon>
+                <SocialIcon
+                  href="https://github.com/amjad992"
+                  bgColor="var(--github)"
+                  label="GitHub"
+                >
+                  <GitHubIcon />
+                </SocialIcon>
+              </div>
             </div>
-          </div>
 
-          {/* Freelancing Platforms */}
-          <div className="freelancing-section">
-            <h3 className="freelancing-title">Hire me on</h3>
-            <div className="freelancing-icons">
-              <SocialIcon
-                href="https://www.upwork.com/freelancers/amjad"
-                bgColor="var(--upwork)"
-                label="Upwork"
-              >
-                <UpworkIcon />
-              </SocialIcon>
-              <SocialIcon
-                href="https://www.fiverr.com/amjad992"
-                bgColor="var(--fiverr)"
-                label="Fiverr"
-              >
-                <FiverrIcon />
-              </SocialIcon>
+            {/* Freelancing Platforms */}
+            <div className="freelancing-section">
+              <h3 className="freelancing-title">Hire me on</h3>
+              <div className="freelancing-icons">
+                <SocialIcon
+                  href="https://www.upwork.com/freelancers/amjad"
+                  bgColor="var(--upwork)"
+                  label="Upwork"
+                >
+                  <UpworkIcon />
+                </SocialIcon>
+                <SocialIcon
+                  href="https://www.fiverr.com/amjad992"
+                  bgColor="var(--fiverr)"
+                  label="Fiverr"
+                >
+                  <FiverrIcon />
+                </SocialIcon>
+              </div>
             </div>
           </div>
         </div>
