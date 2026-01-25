@@ -3,6 +3,11 @@ const nextConfig = {
   redirects: async () => {
     return [
       {
+        source: '/cgpaCalculator',
+        destination: '/cgpa-calculator',
+        permanent: true,
+      },
+      {
         source: '/linkedin',
         destination: 'https://www.linkedin.com/in/amjad992/',
         permanent: true,
