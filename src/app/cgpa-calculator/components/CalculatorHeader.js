@@ -22,7 +22,6 @@ export default function CalculatorHeader({
 
   const handleClearSemesters = () => {
     clearSemesters();
-    onResetCalculator();
   };
   return (
     <div className="calculator-header">

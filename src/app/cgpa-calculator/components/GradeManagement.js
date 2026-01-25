@@ -30,7 +30,6 @@ export default function GradeManagement({
 
   const handleClearGrades = () => {
     clearGrades();
-    onResetGrades();
   };
 
   const handlePointsChange = (grade, points) => {
