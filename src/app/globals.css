@@ -62,10 +62,10 @@ main {
   min-height: 100vh;
 }
 
-/* Home page specific styling - no scroll */
+/* Home page specific styling - scrollable */
 .home-main {
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* Container utility */

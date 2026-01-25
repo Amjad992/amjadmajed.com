@@ -1,13 +1,11 @@
-import Navigation from '../components/Navigation';
 import HeroSection from '../components/HeroSection';
+import ContactSection from '../components/ContactSection';
 
 export default function Home() {
   return (
-    <>
-      <Navigation />
-      <main className="home-main">
-        <HeroSection />
-      </main>
-    </>
+    <main className="home-main">
+      <HeroSection />
+      <ContactSection />
+    </main>
   );
 }
