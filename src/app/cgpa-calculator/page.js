@@ -1,6 +1,5 @@
 'use client';
 import {useEffect} from 'react';
-import Navigation from '../../components/Navigation';
 import HeroSection from './components/HeroSection';
 import GradeManagement from './components/GradeManagement';
 import CalculatorHeader from './components/CalculatorHeader';
@@ -61,9 +60,7 @@ function CGPACalculatorContent() {
   };
 
   return (
-    <>
-      <Navigation />
-      <main className="cgpa-calculator-page">
+    <main className="cgpa-calculator-page">
         {/* Toast notifications */}
         <div className="toast-container">
           {toasts.map((toast) => (
@@ -128,7 +125,6 @@ function CGPACalculatorContent() {
           </div>
         </ErrorBoundary>
       </main>
-    </>
   );
 }
 
