@@ -1,14 +1,37 @@
 'use client';
+import {useEffect} from 'react';
 import Navigation from '../../components/Navigation';
 import HeroSection from './components/HeroSection';
 import GradeManagement from './components/GradeManagement';
 import CalculatorHeader from './components/CalculatorHeader';
 import SemesterCard from './components/SemesterCard';
 import ResultsSection from './components/ResultsSection';
+import ErrorBoundary from './components/ErrorBoundary';
 import {useCGPACalculator, useGradeManagement} from './hooks';
+import {StorageProvider, useStorageData} from './StorageContext';
+import {useToast} from './useToast';
 import './cgpa-calculator.css';
 
-export default function CGPACalculator() {
+function CGPACalculatorContent() {
+  // Toast notifications
+  const {toasts, showToast, dismissToast} = useToast();
+
+  // Storage hook for error display
+  const {storageErrors} = useStorageData();
+
+  // Show toast when storage errors occur
+  useEffect(() => {
+    if (storageErrors.grades) {
+      showToast(`Grades: ${storageErrors.grades}. Using defaults.`, 'error');
+    }
+    if (storageErrors.semesters) {
+      showToast(
+        `Semesters: ${storageErrors.semesters}. Using defaults.`,
+        'error'
+      );
+    }
+  }, [storageErrors.grades, storageErrors.semesters, showToast]);
+
   // Grade management hook
   const {
     customGrades,
@@ -41,8 +64,29 @@ export default function CGPACalculator() {
     <>
       <Navigation />
       <main className="cgpa-calculator-page">
-        <div className="container">
-          <HeroSection />
+        {/* Toast notifications */}
+        <div className="toast-container">
+          {toasts.map((toast) => (
+            <div
+              key={toast.id}
+              className={`toast toast-${toast.type}`}
+              onClick={() => dismissToast(toast.id)}
+            >
+              <span className="toast-icon">⚠️</span>
+              <span className="toast-message">{toast.message}</span>
+              <button
+                className="toast-close"
+                onClick={() => dismissToast(toast.id)}
+              >
+                ×
+              </button>
+            </div>
+          ))}
+        </div>
+
+        <ErrorBoundary>
+          <div className="container">
+            <HeroSection />
 
           <GradeManagement
             customGrades={customGrades}
@@ -57,6 +101,7 @@ export default function CGPACalculator() {
             <CalculatorHeader
               onAddSemester={addSemester}
               onResetCalculator={resetCalculator}
+              semesters={semesters}
             />
 
             {/* Semesters */}
@@ -80,8 +125,17 @@ export default function CGPACalculator() {
             totalCredits={totalCredits}
             semesterCount={semesters.length}
           />
-        </div>
+          </div>
+        </ErrorBoundary>
       </main>
     </>
+  );
+}
+
+export default function CGPACalculator() {
+  return (
+    <StorageProvider>
+      <CGPACalculatorContent />
+    </StorageProvider>
   );
 }

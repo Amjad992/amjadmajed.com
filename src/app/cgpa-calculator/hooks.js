@@ -5,6 +5,7 @@ import {
   validateGradePoints,
   generateUniqueGradeName,
 } from './utils';
+import {useStorageData} from './StorageContext';
 
 export function useCGPACalculator(customGrades) {
   const [semesters, setSemesters] = useState([
@@ -16,6 +17,20 @@ export function useCGPACalculator(customGrades) {
   ]);
   const [cgpa, setCgpa] = useState(0);
   const [totalCredits, setTotalCredits] = useState(0);
+  const {loadSemesters} = useStorageData();
+
+  // Load semesters from localStorage on mount
+  useEffect(() => {
+    try {
+      const loaded = loadSemesters();
+      if (loaded) {
+        setSemesters(loaded);
+      }
+    } catch (error) {
+      console.error('Error in useCGPACalculator:', error);
+      // Keep using default semesters
+    }
+  }, [loadSemesters]);
 
   // Calculate CGPA whenever semesters or grades change
   useEffect(() => {
@@ -124,6 +139,20 @@ export function useCGPACalculator(customGrades) {
 
 export function useGradeManagement() {
   const [customGrades, setCustomGrades] = useState(DEFAULT_GRADES);
+  const {loadGrades} = useStorageData();
+
+  // Load grades from localStorage on mount
+  useEffect(() => {
+    try {
+      const loaded = loadGrades();
+      if (loaded) {
+        setCustomGrades(loaded);
+      }
+    } catch (error) {
+      console.error('Error in useGradeManagement:', error);
+      // Keep using DEFAULT_GRADES
+    }
+  }, [loadGrades]);
 
   const updateCustomGrade = (oldGrade, newGrade, points) => {
     const newCustomGrades = {...customGrades};

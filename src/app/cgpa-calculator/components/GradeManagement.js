@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import {GRADE_POINT_LIMITS} from '../constants';
+import {useStorageData} from '../StorageContext';
+import {useSaveButton} from '../useSaveButton';
 
 export default function GradeManagement({
   customGrades,
@@ -8,9 +10,27 @@ export default function GradeManagement({
   onRemoveGrade,
   onResetGrades,
 }) {
+  const {saveGrades, clearGrades, hasSavedData} = useStorageData();
+  const [saveButtonText, triggerSaveGrades] = useSaveButton(
+    'Save configurations',
+    'Saved!'
+  );
+
   const handleGradeNameChange = (oldGrade, newGrade) => {
     const points = customGrades[oldGrade];
     onUpdateGrade(oldGrade, newGrade, points);
+  };
+
+  const handleSaveGrades = () => {
+    const success = saveGrades(customGrades);
+    if (success) {
+      triggerSaveGrades();
+    }
+  };
+
+  const handleClearGrades = () => {
+    clearGrades();
+    onResetGrades();
   };
 
   const handlePointsChange = (grade, points) => {
@@ -45,6 +65,22 @@ export default function GradeManagement({
           >
             Reset to Default
           </button>
+          <button
+            onClick={handleSaveGrades}
+            className="save-grades-btn"
+            title="Save current grade configuration"
+          >
+            {saveButtonText}
+          </button>
+          {hasSavedData.grades && (
+            <button
+              onClick={handleClearGrades}
+              className="clear-saved-btn"
+              title="Clear saved grade data"
+            >
+              Clear Saved Data
+            </button>
+          )}
         </div>
       </div>
 
