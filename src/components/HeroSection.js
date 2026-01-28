@@ -154,7 +154,7 @@ const HeroSection = () => {
                   </svg>
                 </div>
                 <div className="contact-details">
-                  <h4>Phone</h4>
+                  <strong className="contact-label">Phone</strong>
                   <a href="tel:+923377232344">+92 3377 232344</a>
                 </div>
               </div>
@@ -171,7 +171,7 @@ const HeroSection = () => {
                   </svg>
                 </div>
                 <div className="contact-details">
-                  <h4>Email</h4>
+                  <strong className="contact-label">Email</strong>
                   <a href="mailto:contact@amjadmajed.com">
                     contact@amjadmajed.com
                   </a>

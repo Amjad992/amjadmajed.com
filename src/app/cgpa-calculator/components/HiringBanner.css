@@ -1,0 +1,190 @@
+/* Add bottom margin to results section to prevent banner from blocking content */
+.cgpa-calculator-page .results-section {
+  margin-bottom: 150px !important; /* Override default margin to add space for banner */
+  transition: margin-bottom 0.3s ease-out;
+}
+
+/* Bottom Floating Hiring Banner */
+.hiring-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  z-index: 1000;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.4s ease-out;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.hiring-banner.closing {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.hiring-banner-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hiring-banner-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.hiring-banner-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.hiring-banner-text strong {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+
+.hiring-banner-text span {
+  font-size: 14px;
+  opacity: 0.95;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.hiring-banner-cta {
+  padding: 10px 24px;
+  background: white;
+  color: #667eea;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.hiring-banner-cta:hover {
+  background: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.hiring-banner-hide {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 28px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  line-height: 1;
+  padding: 0;
+}
+
+.hiring-banner-hide:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .cgpa-calculator-page .results-section {
+    margin-bottom: 130px !important; /* Space for mobile banner */
+  }
+
+  .hiring-banner-content {
+    padding: 12px 16px;
+    gap: 12px;
+  }
+
+  .hiring-banner-icon {
+    font-size: 24px;
+  }
+
+  .hiring-banner-text {
+    gap: 2px;
+  }
+
+  .hiring-banner-text strong {
+    font-size: 14px;
+  }
+
+  .hiring-banner-text span {
+    font-size: 12px;
+  }
+
+  .hiring-banner-cta {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .hiring-banner-hide {
+    width: 32px;
+    height: 32px;
+    font-size: 24px;
+  }
+}
+
+/* Extra small mobile */
+@media (max-width: 480px) {
+  .cgpa-calculator-page .results-section {
+    margin-bottom: 160px !important; /* More space when content wraps */
+  }
+
+  .hiring-banner-content {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .hiring-banner-text {
+    flex: 1 1 100%;
+    order: 1;
+  }
+
+  .hiring-banner-icon {
+    order: 0;
+  }
+
+  .hiring-banner-cta {
+    flex: 1;
+    order: 2;
+    text-align: center;
+  }
+
+  .hiring-banner-hide {
+    order: 3;
+  }
+}
