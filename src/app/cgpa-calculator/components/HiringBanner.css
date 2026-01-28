@@ -98,22 +98,25 @@
 
 .hiring-banner-hide {
   background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: none;
   color: white;
-  font-size: 13px;
-  padding: 8px 16px;
-  border-radius: 6px;
+  font-size: 28px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   cursor: pointer;
-  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
   transition: all 0.2s ease;
-  white-space: nowrap;
+  line-height: 1;
+  padding: 0;
 }
 
 .hiring-banner-hide:hover {
   background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transform: scale(1.1);
 }
 
 /* Mobile Responsive */
@@ -149,8 +152,9 @@
   }
 
   .hiring-banner-hide {
-    font-size: 12px;
-    padding: 6px 12px;
+    width: 32px;
+    height: 32px;
+    font-size: 24px;
   }
 }
 

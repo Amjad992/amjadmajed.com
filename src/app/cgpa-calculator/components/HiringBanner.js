@@ -13,6 +13,11 @@ export default function HiringBanner() {
     }, 300); // Match animation duration
   };
 
+  const handleApplyClick = () => {
+    // Hide banner when user clicks Apply Now
+    handleHide();
+  };
+
   if (!isVisible) return null;
 
   return (
@@ -30,6 +35,7 @@ export default function HiringBanner() {
           target="_blank"
           rel="noopener noreferrer"
           className="hiring-banner-cta"
+          onClick={handleApplyClick}
         >
           Apply Now →
         </a>
@@ -38,7 +44,7 @@ export default function HiringBanner() {
           className="hiring-banner-hide"
           aria-label="Hide hiring banner"
         >
-          Hide
+          ×
         </button>
       </div>
     </div>
