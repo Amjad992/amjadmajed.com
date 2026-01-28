@@ -1,6 +1,6 @@
-/* Add bottom margin to container to prevent banner from blocking content */
-.cgpa-calculator-page .container {
-  margin-bottom: 180px; /* Space for banner + breathing room */
+/* Add bottom margin to results section to prevent banner from blocking content */
+.cgpa-calculator-page .results-section {
+  margin-bottom: 150px !important; /* Override default margin to add space for banner */
   transition: margin-bottom 0.3s ease-out;
 }
 
@@ -121,8 +121,8 @@
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-  .cgpa-calculator-page .container {
-    margin-bottom: 150px; /* Space for mobile banner */
+  .cgpa-calculator-page .results-section {
+    margin-bottom: 130px !important; /* Space for mobile banner */
   }
 
   .hiring-banner-content {
@@ -160,8 +160,8 @@
 
 /* Extra small mobile */
 @media (max-width: 480px) {
-  .cgpa-calculator-page .container {
-    margin-bottom: 180px; /* More space when content wraps */
+  .cgpa-calculator-page .results-section {
+    margin-bottom: 160px !important; /* More space when content wraps */
   }
 
   .hiring-banner-content {
