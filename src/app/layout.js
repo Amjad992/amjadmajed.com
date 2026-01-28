@@ -91,6 +91,11 @@ export const metadata = {
 export default function RootLayout({children}) {
   return (
     <html lang="en">
+      <head>
+        {/* DNS Prefetch and Preconnect for external resources */}
+        <link rel="dns-prefetch" href="https://static.cloudflareinsights.com" />
+        <link rel="preconnect" href="https://static.cloudflareinsights.com" crossOrigin="anonymous" />
+      </head>
       <body>{children}</body>
     </html>
   );
