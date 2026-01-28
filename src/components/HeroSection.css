@@ -112,10 +112,20 @@
   color: var(--primary-color);
   font-weight: 500;
   transition: opacity 0.2s ease;
+  text-decoration: none; /* Remove underline */
 }
 
 .link-text:hover {
   opacity: 0.8;
+  text-decoration: none; /* Keep underline removed on hover */
+}
+
+.link-text:visited {
+  color: var(--primary-color); /* Keep red color even after visiting */
+}
+
+.link-text:active {
+  color: var(--primary-color); /* Keep red color when clicking */
 }
 
 .social-section,

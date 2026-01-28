@@ -1,5 +1,3 @@
-'use client';
-
 import PropTypes from 'prop-types';
 import Image from 'next/image';
 import './HeroSection.css';
@@ -69,12 +67,14 @@ const HeroSection = () => {
               <h2 className="hero-name">I am Amjad Majed</h2>
               <p className="hero-tagline">
                 Helping business transform with technology, I lead the team in{' '}
-                <span 
+                <a 
+                  href="https://desolint.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="link-text"
-                  onClick={() => window.open('https://desolint.com', '_blank')}
                 >
                   desolint.com
-                </span>
+                </a>
                 {' '} to build scalable applications and deliver innovative, reliable solutions.
               </p>
             </div>
