@@ -3,22 +3,13 @@ import {useState, useEffect} from 'react';
 import './HiringBanner.css';
 
 export default function HiringBanner() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [isClosing, setIsClosing] = useState(false);
 
-  useEffect(() => {
-    // Check if user has dismissed the banner before
-    const isDismissed = localStorage.getItem('hiring-banner-dismissed');
-    if (!isDismissed) {
-      setIsVisible(true);
-    }
-  }, []);
-
-  const handleDismiss = () => {
+  const handleHide = () => {
     setIsClosing(true);
     setTimeout(() => {
       setIsVisible(false);
-      localStorage.setItem('hiring-banner-dismissed', 'true');
     }, 300); // Match animation duration
   };
 
@@ -43,11 +34,11 @@ export default function HiringBanner() {
           Apply Now →
         </a>
         <button
-          onClick={handleDismiss}
-          className="hiring-banner-close"
-          aria-label="Dismiss hiring banner"
+          onClick={handleHide}
+          className="hiring-banner-hide"
+          aria-label="Hide hiring banner"
         >
-          ×
+          Hide
         </button>
       </div>
     </div>

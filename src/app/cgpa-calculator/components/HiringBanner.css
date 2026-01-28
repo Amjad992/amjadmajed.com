@@ -96,27 +96,24 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.hiring-banner-close {
+.hiring-banner-hide {
   background: rgba(255, 255, 255, 0.2);
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.4);
   color: white;
-  font-size: 28px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
+  font-size: 13px;
+  padding: 8px 16px;
+  border-radius: 6px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-weight: 600;
   flex-shrink: 0;
   transition: all 0.2s ease;
-  line-height: 1;
-  padding: 0;
+  white-space: nowrap;
 }
 
-.hiring-banner-close:hover {
+.hiring-banner-hide:hover {
   background: rgba(255, 255, 255, 0.3);
-  transform: scale(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Mobile Responsive */
@@ -151,10 +148,9 @@
     font-size: 13px;
   }
 
-  .hiring-banner-close {
-    width: 32px;
-    height: 32px;
-    font-size: 24px;
+  .hiring-banner-hide {
+    font-size: 12px;
+    padding: 6px 12px;
   }
 }
 
@@ -184,7 +180,7 @@
     text-align: center;
   }
 
-  .hiring-banner-close {
+  .hiring-banner-hide {
     order: 3;
   }
 }
