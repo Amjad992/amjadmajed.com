@@ -86,10 +86,6 @@ export const metadata = {
     ],
     apple: [{url: '/apple-icon.png', sizes: '180x180', type: 'image/png'}],
   },
-
-  verification: {
-    google: 'PLACEHOLDER_FOR_GOOGLE_SEARCH_CONSOLE',
-  },
 };
 
 export default function RootLayout({children}) {
