@@ -229,11 +229,74 @@
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
 
-/* Hide on tablet and mobile */
+/* Mobile responsive adjustments */
 @media (max-width: 768px) {
-  .hiring-card-icon,
+  .hiring-card-icon {
+    width: 60px;
+    height: 60px;
+    bottom: 80px; /* Position above potential bottom nav/tabs */
+    right: 15px;
+  }
+
+  .hiring-icon-emoji {
+    font-size: 24px;
+  }
+
+  .hiring-icon-badge {
+    font-size: 8px;
+  }
+
   .hiring-card {
-    display: none;
+    width: calc(100vw - 30px); /* Full width minus margins */
+    max-width: 320px;
+    bottom: 80px; /* Match icon position */
+    right: 15px;
+    left: 15px;
+    margin: 0 auto;
+  }
+
+  .hiring-card-header {
+    padding: 16px;
+  }
+
+  .hiring-card-icon-large {
+    font-size: 40px;
+    margin-bottom: 6px;
+  }
+
+  .hiring-card-header h3 {
+    font-size: 18px;
+  }
+
+  .hiring-card-body {
+    padding: 16px;
+  }
+
+  .hiring-card-title {
+    font-size: 14px;
+  }
+
+  .hiring-card-description {
+    font-size: 13px;
+  }
+
+  .position-badge {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+
+  .hiring-card-tech {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .hiring-card-footer {
+    padding: 14px 16px 16px 16px;
+  }
+
+  .hiring-card-cta {
+    padding: 12px;
+    font-size: 14px;
   }
 }
 

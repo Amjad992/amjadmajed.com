@@ -8,22 +8,21 @@ export default function HiringCard() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Check if user has dismissed the card before
-    const dismissed = localStorage.getItem('hiring-card-dismissed');
-    if (dismissed) {
-      setIsDismissed(true);
-    } else {
-      // Show card after 2 seconds
-      const timer = setTimeout(() => {
-        setIsVisible(true);
-      }, 2000);
-      return () => clearTimeout(timer);
-    }
+    // Show card after 2 seconds (no localStorage check)
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 2000);
+    return () => clearTimeout(timer);
   }, []);
 
   const handleDismiss = () => {
+    // Temporary hide only (no localStorage)
     setIsDismissed(true);
-    localStorage.setItem('hiring-card-dismissed', 'true');
+  };
+
+  const handleApplyClick = () => {
+    // Hide card when user clicks Apply Now
+    handleDismiss();
   };
 
   const toggleExpand = () => {
@@ -94,6 +93,7 @@ export default function HiringCard() {
               target="_blank"
               rel="noopener noreferrer"
               className="hiring-card-cta"
+              onClick={handleApplyClick}
             >
               Apply Now →
             </a>
