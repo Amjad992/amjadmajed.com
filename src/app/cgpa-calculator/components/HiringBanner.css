@@ -1,7 +1,7 @@
-/* Add bottom padding to page when banner is visible */
-.cgpa-calculator-page {
-  padding-bottom: 100px; /* Space for banner */
-  transition: padding-bottom 0.3s ease-out;
+/* Add bottom margin to container to prevent banner from blocking content */
+.cgpa-calculator-page .container {
+  margin-bottom: 120px; /* Space for banner + breathing room */
+  transition: margin-bottom 0.3s ease-out;
 }
 
 /* Bottom Floating Hiring Banner */
@@ -121,8 +121,8 @@
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-  .cgpa-calculator-page {
-    padding-bottom: 80px; /* Smaller space for mobile banner */
+  .cgpa-calculator-page .container {
+    margin-bottom: 100px; /* Space for mobile banner */
   }
 
   .hiring-banner-content {
@@ -160,8 +160,8 @@
 
 /* Extra small mobile */
 @media (max-width: 480px) {
-  .cgpa-calculator-page {
-    padding-bottom: 100px; /* More space when content wraps */
+  .cgpa-calculator-page .container {
+    margin-bottom: 120px; /* More space when content wraps */
   }
 
   .hiring-banner-content {
