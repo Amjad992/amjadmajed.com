@@ -49,14 +49,16 @@
 
 .hiring-icon-emoji {
   font-size: 28px;
+  margin-bottom: -2px; /* Reduce space between emoji and text */
 }
 
 .hiring-icon-badge {
-  font-size: 10px;
+  font-size: 8px; /* Reduced from 10px */
   font-weight: 600;
   color: white;
   text-align: center;
-  line-height: 1.2;
+  line-height: 1.1;
+  max-width: 55px; /* Constrain width to keep text inside circle */
 }
 
 /* Expanded Card */
@@ -240,10 +242,12 @@
 
   .hiring-icon-emoji {
     font-size: 24px;
+    margin-bottom: -2px;
   }
 
   .hiring-icon-badge {
-    font-size: 8px;
+    font-size: 7px; /* Slightly smaller on mobile */
+    max-width: 50px;
   }
 
   .hiring-card {
