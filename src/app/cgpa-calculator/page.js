@@ -7,6 +7,7 @@ import CalculatorHeader from './components/CalculatorHeader';
 import SemesterCard from './components/SemesterCard';
 import ResultsSection from './components/ResultsSection';
 import ErrorBoundary from './components/ErrorBoundary';
+import HiringBanner from './components/HiringBanner';
 import {useCGPACalculator, useGradeManagement} from './hooks';
 import {StorageProvider, useStorageData} from './StorageContext';
 import {useToast} from './useToast';
@@ -125,6 +126,9 @@ function CGPACalculatorContent() {
           />
           </div>
         </ErrorBoundary>
+
+        {/* Hiring Banner */}
+        <HiringBanner />
       </main>
   );
 }
