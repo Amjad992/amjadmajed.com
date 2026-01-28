@@ -1,5 +1,6 @@
 'use client';
 import {useEffect} from 'react';
+import Script from 'next/script';
 import HeroSection from './components/HeroSection';
 import GradeManagement from './components/GradeManagement';
 import CalculatorHeader from './components/CalculatorHeader';
@@ -129,9 +130,39 @@ function CGPACalculatorContent() {
 }
 
 export default function CGPACalculator() {
+  const webAppSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'CGPA Calculator',
+    description:
+      'Free online CGPA and GPA calculator. Calculate your cumulative grade point average with precision.',
+    url: 'https://amjadmajed.com/cgpa-calculator',
+    applicationCategory: 'EducationalApplication',
+    operatingSystem: 'Any',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    author: {
+      '@type': 'Person',
+      name: 'Amjad Majed',
+      url: 'https://amjadmajed.com',
+    },
+  };
+
   return (
-    <StorageProvider>
-      <CGPACalculatorContent />
-    </StorageProvider>
+    <>
+      <Script
+        id="webapp-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(webAppSchema),
+        }}
+      />
+      <StorageProvider>
+        <CGPACalculatorContent />
+      </StorageProvider>
+    </>
   );
 }
