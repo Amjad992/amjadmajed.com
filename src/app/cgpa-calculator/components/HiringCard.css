@@ -1,0 +1,258 @@
+/* Side Floating Hiring Card */
+
+/* Collapsed Icon Button */
+.hiring-card-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+  cursor: pointer;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: all 0.3s ease;
+  animation: slideInRight 0.5s ease-out, pulse 2s infinite;
+}
+
+.hiring-card-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(150px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 30px rgba(102, 126, 234, 0.8);
+  }
+}
+
+.hiring-icon-emoji {
+  font-size: 28px;
+}
+
+.hiring-icon-badge {
+  font-size: 10px;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Expanded Card */
+.hiring-card {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 320px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  overflow: hidden;
+  animation: expandCard 0.3s ease-out;
+}
+
+@keyframes expandCard {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.hiring-card-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 2;
+  line-height: 1;
+  padding: 0;
+}
+
+.hiring-card-close:hover {
+  background: rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+}
+
+.hiring-card-collapse {
+  position: absolute;
+  top: 12px;
+  right: 50px;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 2;
+  line-height: 1;
+  padding: 0;
+}
+
+.hiring-card-collapse:hover {
+  background: rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+}
+
+.hiring-card-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+.hiring-card-icon-large {
+  font-size: 48px;
+  margin-bottom: 8px;
+}
+
+.hiring-card-header h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.hiring-card-body {
+  padding: 20px;
+  background: white;
+}
+
+.hiring-card-title {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.hiring-card-title strong {
+  color: #667eea;
+}
+
+.hiring-card-description {
+  margin: 0 0 16px 0;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.hiring-card-positions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.position-badge {
+  background: #f0f0f0;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #333;
+}
+
+.hiring-card-tech {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+  padding: 12px;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.hiring-card-tech strong {
+  color: #667eea;
+}
+
+.hiring-card-footer {
+  padding: 16px 20px 20px 20px;
+  background: white;
+}
+
+.hiring-card-cta {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.hiring-card-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Hide on tablet and mobile */
+@media (max-width: 768px) {
+  .hiring-card-icon,
+  .hiring-card {
+    display: none;
+  }
+}
+
+/* Adjust positioning on smaller screens */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .hiring-card {
+    width: 280px;
+  }
+
+  .hiring-card-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .hiring-icon-emoji {
+    font-size: 24px;
+  }
+
+  .hiring-icon-badge {
+    font-size: 9px;
+  }
+}
