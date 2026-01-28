@@ -6,6 +6,7 @@ export default function HiringCard() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isAtBottom, setIsAtBottom] = useState(false);
 
   useEffect(() => {
     // Show card after 2 seconds (no localStorage check)
@@ -13,6 +14,26 @@ export default function HiringCard() {
       setIsVisible(true);
     }, 2000);
     return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    // Check if user is in bottom 10% of page
+    const handleScroll = () => {
+      const scrollHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const clientHeight = window.innerHeight;
+
+      // Calculate if we're in bottom 10% of page
+      const scrollableHeight = scrollHeight - clientHeight;
+      const bottomThreshold = scrollableHeight * 0.9; // 90% scrolled = bottom 10%
+
+      setIsAtBottom(scrollTop >= bottomThreshold);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial position
+
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleDismiss = () => {
@@ -29,7 +50,7 @@ export default function HiringCard() {
     setIsExpanded(!isExpanded);
   };
 
-  if (isDismissed || !isVisible) return null;
+  if (isDismissed || !isVisible || isAtBottom) return null;
 
   return (
     <>
