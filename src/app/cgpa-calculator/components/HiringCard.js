@@ -23,9 +23,9 @@ export default function HiringCard() {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
       const clientHeight = window.innerHeight;
 
-      // Calculate if we're in bottom 20% of page
+      // Calculate if we're in bottom 5% of page
       const scrollableHeight = scrollHeight - clientHeight;
-      const bottomThreshold = scrollableHeight * 0.8; // 80% scrolled = bottom 20%
+      const bottomThreshold = scrollableHeight * 0.95; // 95% scrolled = bottom 5%
 
       setIsAtBottom(scrollTop >= bottomThreshold);
     };
